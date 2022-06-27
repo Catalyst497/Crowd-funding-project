@@ -43,7 +43,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/Catalyst497/Crowd-funding-project]
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://catalyst497.github.io/Crowd-funding-project/]
 
 ## My process
 
