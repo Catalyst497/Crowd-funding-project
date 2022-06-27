@@ -1,0 +1,71 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	background-color: darken($color: white, $amount: 4);
+	color: $dark-gray;
+	font-family: $main-family;
+	font-size: $primary-fontsize;
+	text-align: center;
+	padding-bottom: 2rem;
+}
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.img {
+	> img {
+		width: 100%;
+		height: 100%;
+	}
+}
+hr,
+.hr {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+@mixin activeBlock {
+	padding: 1.5rem;
+	border-radius: 0.2rem;
+	p {
+		margin: 1rem 0;
+	}
+	.plg {
+		font-size: 0.8rem;
+		text-align: end;
+		color: $moderate-cyan;
+		font-weight: $f-bold;
+	}
+	.top {
+		@extend .title;
+		margin: 0;
+		margin-bottom: 0.5rem;
+		display: flex;
+		> * {
+			flex: 1;
+		}
+		> *:first-of-type {
+			font-size: 0.9rem;
+		}
+		> *:last-of-type {
+			font-size: 0.8rem;
+			text-align: end;
+			color: $moderate-cyan;
+			font-weight: $f-bold;
+		}
+	}
+	.bottom {
+		@extend .flex;
+	}
+	.fear {
+		@extend .flex;
+		gap: 0.7rem;
+	}
+}

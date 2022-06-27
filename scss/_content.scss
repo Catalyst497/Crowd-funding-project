@@ -1,0 +1,363 @@
+header {
+	background-image: url(/images/image-hero-desktop.jpg);
+	background-size: cover;
+	height: 400px;
+	nav {
+		@extend .flex;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 64rem;
+		padding: 4rem 1rem;
+		.items {
+			@extend .flex;
+			list-style-type: none;
+			text-align: center;
+			padding: 0;
+			font-size: 13px;
+			color: white;
+			flex: 300px;
+			flex-grow: 0;
+			li:hover {
+				text-decoration: underline;
+				text-decoration-color: $dark-gray;
+			}
+		}
+	}
+}
+.menu-option {
+	display: none;
+}
+.menu {
+	display: none;
+}
+
+// Buttons
+.call-to-action {
+	padding: 0.7rem 1rem;
+	background-color: $moderate-cyan;
+	border: none;
+	border-radius: 2rem;
+	color: white;
+	&:hover {
+		background-color: $dark-cyan;
+	}
+}
+// BLOCK 1
+@mixin margin-blk($hor) {
+	margin: {
+		left: $hor;
+		right: $hor;
+	}
+}
+[class^='blck'],
+.block-item {
+	@include margin-blk(auto);
+	background-color: white;
+	margin-top: 1rem;
+	max-width: 600px;
+	min-width: auto;
+	border-radius: 0.5rem;
+	border: $block-border;
+	h1 {
+		color: black;
+	}
+}
+.blck-1 {
+	margin-top: -3rem;
+	padding-bottom: 1rem;
+	> img {
+		transform: translateY(-50%);
+	}
+	h1 {
+		color: $black;
+		font-weight: $f-bolder;
+		font-size: 1.4rem;
+	}
+	p {
+		padding: 1rem 0;
+		font-size: 0.8rem;
+	}
+	.flex {
+		justify-content: space-around;
+		margin: 2rem 0;
+		font-size: 0.8rem;
+		> button {
+			border: none;
+		}
+		> *:nth-of-type(1) {
+			@extend .call-to-action;
+		}
+		> *:nth-of-type(2) {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			color: gray;
+			background-color: lighten($black, 80%);
+			padding-right: 1rem;
+			border-radius: 2rem;
+			font-weight: $f-bolder;
+			img {
+				height: 45px;
+			}
+		}
+	}
+}
+.blck-2 {
+	padding: 1.7rem;
+	p {
+		font-size: 0.8rem;
+	}
+	> .written {
+		display: flex;
+		align-items: center;
+		height: 6rem;
+		> div {
+			display: inline-block;
+		}
+		> div:not(.hr) {
+			width: max-content;
+			flex: 1;
+		}
+		> div.hr {
+			width: 1px;
+			background-color: lighten(gray, 30%);
+			height: 100%;
+		}
+	}
+	> .bar {
+		border-radius: 1rem;
+		height: 0.6rem;
+		background-color: lighten($black, 80%);
+		margin-top: 1.8rem;
+		> div {
+			height: 100%;
+			width: 80%;
+			border-radius: 1rem;
+			background-color: $moderate-cyan;
+		}
+	}
+}
+.title {
+	color: $black;
+	font-weight: $f-bolder;
+	margin: 1.5rem 0;
+}
+.blck-3 {
+	padding: 1.7rem;
+	text-align: start;
+	.main {
+		font-size: 1.2rem;
+	}
+	> * {
+		margin: 1rem 0;
+	}
+	.blck-item {
+		@extend .block-item;
+		& ~ div {
+			@extend .blck-item;
+			&.out-of-stock {
+				opacity: 0.5;
+				.bottom {
+					.call-to-action {
+						background-color: $dark-gray;
+					}
+				}
+			}
+		}
+		@include activeBlock;
+	}
+}
+
+// Modals
+[class^='overlay-'] {
+	position: fixed;
+	background-color: #0000007c;
+	z-index: 10;
+	inset: 0;
+	overflow-y: auto;
+	display: none;
+}
+.mod {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 1.2rem;
+	border-radius: 0.5rem;
+	max-width: 350px;
+}
+#thank-you {
+	z-index: 11;
+	.title {
+		font-size: 1rem;
+	}
+	p {
+		font-size: 0.7rem;
+		line-height: 20px;
+	}
+	button {
+		@extend .call-to-action;
+		display: block;
+		margin: 1rem auto;
+	}
+}
+#back-this-project {
+	position: relative;
+	margin: 2rem auto;
+	background-color: white;
+	padding: 1.2rem;
+	border-radius: 0.5rem;
+	max-width: 600px;
+	z-index: 12;
+	text-align: start;
+	> .title {
+		font-size: 1.5rem;
+	}
+	.exit {
+		position: absolute;
+		top: 1.2rem;
+		right: 1.2rem;
+	}
+	svg {
+		g {
+			fill: $dark-gray;
+		}
+		&:hover g {
+			fill: $black;
+		}
+	}
+
+	[class^='block'] {
+		position: relative;
+		@extend .block-item;
+		@include activeBlock;
+		padding: 1.2rem;
+		cursor: pointer;
+		display: grid;
+		align-items: center;
+		grid-template-columns: 2rem repeat(9, 1fr);
+		grid-template-areas:
+			'sel nam nam nam nam plg plg plg fer fer'
+			'sel par par par par par par par par par'
+			'fom fom fom fom fom fom fom fom fom fom';
+		transition: all 300ms ease-out;
+		&:last-of-type {
+			opacity: 0.5;
+		}
+		&:hover {
+			> .name {
+				color: $moderate-cyan;
+			}
+			> .select {
+				border-color: $moderate-cyan;
+			}
+		}
+		&.disabled {
+			pointer-events: none;
+			form {
+				pointer-events: inherit;
+			}
+		}
+
+		> .name {
+			@extend .title;
+			grid-area: nam;
+			font-size: 1rem;
+		}
+		> .select {
+			position: absolute;
+			grid-area: sel;
+			width: 1.5rem;
+			height: 1.5rem;
+			border-radius: 100%;
+			top: 1.6rem;
+			border: $block-border;
+			background: inherit;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.inner-select {
+				width: 0.8rem;
+				height: 0.8rem;
+				background-color: $moderate-cyan;
+				border-radius: 100%;
+			}
+		}
+		> .plg {
+			grid-area: plg;
+			text-align: center;
+		}
+		> .fear {
+			grid-area: fer;
+			justify-content: end;
+		}
+		> p {
+			grid-area: par;
+		}
+		form {
+			cursor: pointer;
+			border-top: $block-border;
+			padding: 1rem;
+			padding-bottom: 0;
+			grid-area: fom;
+			display: flex;
+			justify-content: flex-end;
+			flex-wrap: wrap;
+			transition: all 300ms ease-out;
+			input {
+				border: none;
+				outline: none;
+				flex: 1;
+				&:active {
+					border: none;
+					outline: none;
+				}
+			}
+			input#pledge::-webkit-inner-spin-button,
+			input#pledge::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			#sel-plg {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-right: 1rem;
+				width: 80px;
+				border: $block-border;
+				border-radius: 3rem;
+				font-weight: $f-bolder;
+				text-align: center;
+				.hr {
+					height: 0.8rem;
+					width: 1px;
+					background-color: white;
+					@include margin-blk(0.3rem);
+				}
+				.sign {
+					color: $dark-gray;
+					font-size: 0.7rem;
+					margin-right: 2px;
+				}
+				.num {
+					font-size: 1rem;
+					color: $black;
+				}
+				&:hover {
+					border-color: $moderate-cyan;
+					.hr {
+						background-color: $moderate-cyan;
+					}
+				}
+			}
+			&.hidden-input {
+				max-height: 0;
+				overflow: hidden;
+				border: none;
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}

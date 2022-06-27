@@ -1,0 +1,119 @@
+@media (max-width: 500px) {
+	header {
+		background-image: url(/images/image-hero-mobile.jpg);
+		height: 250px;
+		nav {
+			padding: 2.5rem 1.5rem;
+		}
+	}
+	.items {
+		display: none !important;
+	}
+	.menu-option {
+		display: block;
+	}
+	ul.menu {
+		display: block;
+		text-align: start;
+		position: fixed;
+		z-index: 5;
+		background-color: white;
+		top: 5rem;
+		left: 1rem;
+		right: 1rem;
+		border-radius: 0.5rem;
+		list-style-type: none;
+		overflow: hidden;
+		max-height: 0;
+		box-shadow: none;
+		transition: max-height 300ms ease-out;
+
+		li {
+			padding: 1.3rem 1.2rem;
+			color: $black;
+			font-weight: 700;
+		}
+		hr {
+			border: none;
+			height: 1px;
+			background-color: lighten($dark-gray, 45%);
+		}
+		li:hover {
+			text-decoration: underline;
+			text-decoration-color: $dark-gray;
+		}
+	}
+	ul.menu.active {
+		max-height: 300px;
+		box-shadow: 0 5rem 50px 5rem rgba(128, 128, 128, 0.5),
+			0 10rem 100px 5rem rgba(128, 128, 128, 0.2);
+	}
+	// Blocks
+	[class^='blck'] {
+		@include margin-blk(1rem);
+	}
+	.blck-2 {
+		> .written {
+			flex-direction: column;
+			height: auto;
+			justify-content: center;
+			div:not(.hr) {
+				padding: 2rem;
+			}
+			div.hr {
+				height: 1px;
+				width: 20%;
+				margin: auto;
+			}
+		}
+	}
+	.blck-3 .blck-item {
+		margin: 0;
+		margin-top: 1rem;
+		.bottom {
+			align-items: flex-start;
+			gap: 1.5rem;
+			flex-direction: column;
+		}
+	}
+	#back-this-project {
+		@include margin-blk(1rem);
+		[class^='block'] {
+			grid-template-columns: repeat(10, 1fr);
+			grid-template-areas:
+				'sel sel nam nam nam nam nam nam nam nam'
+				'sel sel plg plg plg plg plg plg plg plg'
+				'par par par par par par par par par par'
+				'fer fer fer fer fer fer fer fer fer fer'
+				'fom fom fom fom fom fom fom fom fom fom';
+			.plg {
+				text-align: start;
+			}
+			.fear {
+				justify-content: flex-start;
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+			}
+			form {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-areas:
+					'inpt inpt inpt inpt'
+					'selp selp call call';
+				justify-content: space-between;
+				input {
+					grid-area: inpt;
+					text-align: center;
+					margin-top: 1rem;
+					margin-bottom: 1rem;
+				}
+				#sel-plg {
+					grid-area: selp;
+				}
+				.call-to-action {
+					grid-area: call;
+				}
+			}
+		}
+	}
+}

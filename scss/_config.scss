@@ -1,0 +1,21 @@
+// PRIMARY COLORS
+$moderate-cyan: hsl(176, 50%, 47%);
+$dark-cyan: hsl(176, 72%, 28%);
+
+// NEUTRAL COLORS
+$black: lighten(hsl(0, 0%, 0%), 10%);
+$dark-gray: hsl(0, 0%, 48%);
+
+//FONT
+$main-family: 'Commissioner', sans-serif;
+$primary-fontsize: 0.8rem;
+$f-light: 400;
+$f-bold: 500;
+$f-bolder: 700;
+
+//BORDERS
+$block-border: 1px solid
+	lighten(
+		$color: gray,
+		$amount: 30,
+	);
