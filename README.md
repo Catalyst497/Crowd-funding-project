@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./Screenshot crowd-funding 2.jpg)
-![](./Screenshot crowd-funding.jpg)
+![](./Screenshot2.jpg)
+![](./Screenshot3.jpg)
 ![](./Screenshot.png)
 ![](./Screenshot1.png)
 
@@ -70,7 +70,7 @@ Users should be able to:
 
 ## Author
 
-- Website - [Daniel](https://www.frontendmentor.io/profile/Catalyst497)
+- Website - [Daniel Duyilemi](https://vast-falls-30673.herokuapp.com/)
 - Frontend Mentor - [@Catalyst497](https://www.frontendmentor.io/profile/Catalyst497)
 - Twitter - [@Catalyst497](https://twitter.com/Catalyst497)
 - Github - [@Catalyst497](https://github.com/Catalyst497)
