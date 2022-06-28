@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./Screenshot crowd-funding 2.png)
-![](./Screenshot crowd-funding.png)
+![](./Screenshot crowd-funding 2.jpg)
+![](./Screenshot crowd-funding.jpg)
 ![](./Screenshot.png)
 ![](./Screenshot1.png)
 
